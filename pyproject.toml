@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "obsidian-watchtower"
+version = "0.1.0"
+description = "Local-first fraud/corruption investigation system with immutable evidence vault"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Simply AI Solution"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "psycopg2-binary>=2.9.9",
+    "pgvector>=0.2.4",
+    "sqlalchemy>=2.0.25",
+    "pydantic>=2.5.0",
+    "markdown>=3.5.1",
+    "reportlab>=4.0.7",
+    "python-dateutil>=2.8.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.3",
+    "pytest-cov>=4.1.0",
+    "mypy>=1.8.0",
+    "black>=23.12.1",
+    "ruff>=0.1.9",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["watchtower*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v"

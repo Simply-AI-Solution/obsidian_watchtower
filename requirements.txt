@@ -1,0 +1,7 @@
+psycopg2-binary>=2.9.9
+pgvector>=0.2.4
+sqlalchemy>=2.0.25
+pydantic>=2.5.0
+markdown>=3.5.1
+reportlab>=4.0.7
+python-dateutil>=2.8.2
